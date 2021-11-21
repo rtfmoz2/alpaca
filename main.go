@@ -79,7 +79,7 @@ func main() {
 
 	pacWrapper := NewPACWrapper(PACData{Port: *port})
 	proxyFinder := NewProxyFinder(pacURL, pacWrapper)
-	proxyHandler := NewProxyHandler(proxyFinder.findProxyForRequest, a, proxyFinder.blockProxy)
+	proxyHandler := NewProxyHandler(a, proxyFinder.blockProxy)
 	mux := http.NewServeMux()
 	pacWrapper.SetupHandlers(mux)
 
